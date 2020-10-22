@@ -1,6 +1,7 @@
 ﻿using Backupper.Properties;
 using Ionic.Zip;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,6 +152,9 @@ namespace Backupper
                         {
                             FileProgress.Maximum = args.EntriesTotal;
                             FileProgress.Value = args.EntriesSaved;
+
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal, Handle);
+                            TaskbarManager.Instance.SetProgressValue(args.EntriesSaved, args.EntriesTotal, Handle);
                         }));
                     };
 
