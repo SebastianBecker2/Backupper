@@ -162,9 +162,19 @@ namespace Backupper
                 }
             }).ContinueWith((t) =>
             {
+                
                 this.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("Done!");
+                    if (t.Exception is null)
+                    {
+                        MessageBox.Show("Done!");
+                    } else
+                    {
+
+                        MessageBox.Show("Something went wrong!");
+                    }
+                    btnCancel.Visible = false;
+                    btnZipFiles.Visible = true;
                 }));
             });
         }
