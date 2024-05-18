@@ -132,7 +132,7 @@ namespace Backupper
                     zip_file.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                     zip_file.CompressionMethod = CompressionMethod.BZip2;
                     zip_file.Password = txtPassword.Text;
-                    zip_file.MaxOutputSegmentSize = 1024 * 1024 * 200;
+                    zip_file.MaxOutputSegmentSize = 1024 * 1024 * 1024;
 
                     foreach (var folder in Settings.Default.Folders)
                     {
